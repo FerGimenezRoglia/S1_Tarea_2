@@ -101,10 +101,8 @@ public class Input {
 
     public static String leerString(String message) throws InvalidStringException {
 
-        String readInput = "";
-
         System.out.println(message);
-        readInput = scanner.nextLine();
+        String readInput = scanner.nextLine();
 
         if (readInput.length() >= 3) {
             System.out.println("Your username: " + readInput);
