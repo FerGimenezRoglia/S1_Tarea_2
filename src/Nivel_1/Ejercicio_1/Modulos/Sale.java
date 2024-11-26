@@ -18,10 +18,6 @@ public class Sale {
         return totalSalePrice;
     }
 
-    public void setTotalSalePrice(double totalSalePrice) {
-        this.totalSalePrice = totalSalePrice;
-    }
-
     public ArrayList<Product> getCollection() {
         return collection;
     }

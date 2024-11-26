@@ -5,10 +5,4 @@ public class EmptySaleException extends Exception {
     public EmptySaleException(String message) {
         super("\nTo make a sale, you must first add products.");
     }
-
-    @Override
-    public String getMessage() {
-        return super.getMessage();
-    }
-
 }

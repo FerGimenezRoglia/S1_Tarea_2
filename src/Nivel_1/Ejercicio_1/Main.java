@@ -14,8 +14,8 @@ public class Main {
         try {
             sale.calculateTotal();
 
-        } catch (EmptySaleException exception) {
-            System.out.println(exception.getMessage());
+        } catch (EmptySaleException e) {
+            System.out.println(e.getMessage());
         }
 
         System.out.println(sale.toString());
