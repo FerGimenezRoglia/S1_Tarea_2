@@ -20,7 +20,7 @@ public class Input {
             System.out.println(message);
             try {
                 readData = scanner.nextByte();
-                System.out.println("Your age: " + readData);
+                System.out.println("Number byte: " + readData);
                 isValid = true;
             } catch (InputMismatchException e) {
                 System.out.println("Error: You did not enter a valid number..");
@@ -120,7 +120,7 @@ public class Input {
         String input = scanner.nextLine().toLowerCase();
 
         if(input.equals("y") || input.equals("n")){
-            if (input.equals("s")){
+            if (input.equals("y")){
                 isValidBoolean = true;
             }
             if (input.equals("n")){

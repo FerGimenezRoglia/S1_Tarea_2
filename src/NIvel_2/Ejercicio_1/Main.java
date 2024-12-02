@@ -14,8 +14,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         byte youAge = leerByte("Enter your age: ");
+
         int age = leerInt("Enter the year you were born: ");
+
         float decimalNumber = leerFloat("Enter a decimal number: ");
+
         double decimalLargeNumber = leerDouble("Enter a large decimal number (ej: 123456.78): ");
 
         boolean isValidChar = false;
@@ -27,7 +30,7 @@ public class Main {
                 isValidChar = true;
             } catch (InvalidCharacterException e) {
                 System.out.println(e.getMessage());
-                System.out.println("Error of this type: " + e.getClass().getName());
+                //System.out.println("Error of this type: " + e.getClass().getName());
             }
         }
         //Leer String_________________________________________________________________________

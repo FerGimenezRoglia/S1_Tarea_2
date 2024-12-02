@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Sale {
 
     private double totalSalePrice;
-    private static ArrayList<Product> collection;
+    private ArrayList<Product> collection;
 
     public Sale(double totalSalePrice) {
         this.totalSalePrice = totalSalePrice;
