@@ -1,11 +1,10 @@
-package NIvel_2.Ejercicio_1.Modulos;
+package NIvel_2.Ejercicio_1.modulo;
 
-import NIvel_2.Ejercicio_1.Excepciones.InvalidBooleanException;
-import NIvel_2.Ejercicio_1.Excepciones.InvalidCharacterException;
-import NIvel_2.Ejercicio_1.Excepciones.InvalidStringException;
+import NIvel_2.Ejercicio_1.excepcion.InvalidBooleanException;
+import NIvel_2.Ejercicio_1.excepcion.InvalidCharacterException;
+import NIvel_2.Ejercicio_1.excepcion.InvalidStringException;
 
 import java.util.InputMismatchException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Input {
@@ -87,16 +86,28 @@ public class Input {
     }
 
     public static char leerChar(String message) throws InvalidCharacterException {
+        boolean isValidChar = false;
+        char charRead = '\0';
 
-        System.out.println(message);
-        String character = scanner.nextLine();
+        while (!isValidChar) {
 
-        if (character.length() == 1) {
-            System.out.println("Character: " + character.charAt(0));
-        } else {
-            throw new InvalidCharacterException("Error: You must enter a single character.");
+            System.out.println(message);
+            String character = scanner.nextLine();
+
+            try {
+                if (character.length() == 1) {
+                    System.out.println("Character: " + character.charAt(0));
+                } else {
+                    throw new InvalidCharacterException("Error: You must enter a single character.");
+                }
+                charRead = character.charAt(0);
+                isValidChar = true;
+
+            } catch (InvalidCharacterException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        return character.charAt(0);
+        return charRead;
     }
 
     public static String leerString(String message) throws InvalidStringException {
@@ -119,14 +130,14 @@ public class Input {
         System.out.println(message + " y/n");
         String input = scanner.nextLine().toLowerCase();
 
-        if(input.equals("y") || input.equals("n")){
-            if (input.equals("y")){
+        if (input.equals("y") || input.equals("n")) {
+            if (input.equals("y")) {
                 isValidBoolean = true;
             }
-            if (input.equals("n")){
+            if (input.equals("n")) {
                 isValidBoolean = false;
             }
-        }else{
+        } else {
             throw new InvalidBooleanException("Error: You must enter 'y' or 'n'.");
         }
         return isValidBoolean;

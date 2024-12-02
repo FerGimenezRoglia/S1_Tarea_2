@@ -1,15 +1,15 @@
 package NIvel_2.Ejercicio_1;
 
-import NIvel_2.Ejercicio_1.Excepciones.InvalidBooleanException;
-import NIvel_2.Ejercicio_1.Excepciones.InvalidCharacterException;
-import NIvel_2.Ejercicio_1.Excepciones.InvalidStringException;
+import NIvel_2.Ejercicio_1.excepcion.InvalidBooleanException;
+import NIvel_2.Ejercicio_1.excepcion.InvalidCharacterException;
+import NIvel_2.Ejercicio_1.excepcion.InvalidStringException;
 
 import java.util.Scanner;
 
-import static NIvel_2.Ejercicio_1.Modulos.Input.*;
+import static NIvel_2.Ejercicio_1.modulo.Input.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidCharacterException {
 
         Scanner sc = new Scanner(System.in);
 
@@ -23,16 +23,9 @@ public class Main {
 
         boolean isValidChar = false;
 
-        // Leer char_________________________________________________________________________
-        while (!isValidChar) {
-            try {
-                char Character = leerChar("Enter a character: ");
-                isValidChar = true;
-            } catch (InvalidCharacterException e) {
-                System.out.println(e.getMessage());
-                //System.out.println("Error of this type: " + e.getClass().getName());
-            }
-        }
+        char Character = leerChar("Enter a character: ");
+
+
         //Leer String_________________________________________________________________________
         boolean isValidString = false;
         while (!isValidString) {
@@ -43,6 +36,7 @@ public class Main {
                 System.out.println(e.getMessage());
             }
         }
+
         //Leer String_________________________________________________________________________
         boolean isValidBoolean = false;
         while (!isValidBoolean) {

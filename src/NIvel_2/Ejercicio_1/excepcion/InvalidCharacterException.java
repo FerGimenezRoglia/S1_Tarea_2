@@ -1,4 +1,4 @@
-package NIvel_2.Ejercicio_1.Excepciones;
+package NIvel_2.Ejercicio_1.excepcion;
 
 public class InvalidCharacterException extends Exception{
 
