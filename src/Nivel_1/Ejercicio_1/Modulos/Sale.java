@@ -3,32 +3,42 @@ package Nivel_1.Ejercicio_1.Modulos;
 import Nivel_1.Ejercicio_1.Excepcion.EmptySaleException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sale {
 
     private double totalSalePrice;
-    private ArrayList<Product> collection;
+    private ArrayList<Product> products;
 
     public Sale(double totalSalePrice) {
         this.totalSalePrice = totalSalePrice;
-        this.collection = new ArrayList<>();
+        this.products = new ArrayList<>();
     }
 
     public double getTotalSalePrice() {
         return totalSalePrice;
     }
 
-    public ArrayList<Product> getCollection() {
-        return collection;
+    public List<Product> getProducts() {
+        return new ArrayList<>(products);
+    }
+
+    public void addProduct(Product product) {
+
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null.");
+        }
+        products.add(product);
+
     }
 
     public void calculateTotal() throws EmptySaleException {
 
-        if (collection.isEmpty()) {
+        if (products.isEmpty()) {
             throw new EmptySaleException("To make a sale, you must first add products.");
 
         } else {
-            for (Product product : collection) {
+            for (Product product : products) {
                 totalSalePrice += product.getPrice();
                 totalSalePrice = Math.round(totalSalePrice * 100.0) / 100.0;
             }
@@ -38,7 +48,7 @@ public class Sale {
     @Override
     public String toString() {
         return "\nSale:" +
-                "\nCollection --> " + collection +
+                "\nProducts --> " + products +
                 "\nTotal sale price = " + totalSalePrice + " €.";
 
     }

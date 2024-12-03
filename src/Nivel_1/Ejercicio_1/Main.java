@@ -8,16 +8,32 @@ public class Main {
     public static void main(String[] args) {
 
         Sale sale = new Sale(0);
-        //sale.getCollection().add(new Product("table", 50.4));
-        //sale.getCollection().add(new Product("table", 72.4));
 
         try {
             sale.calculateTotal();
-
         } catch (EmptySaleException e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(sale.toString());
+        Sale secondSale = new Sale(0);
+        secondSale.addProduct(new Product("table", 50.4));
+        secondSale.addProduct(new Product("table", 72.4));
+
+        try {
+            secondSale.calculateTotal();
+        } catch (EmptySaleException e) {
+            System.out.println(e.getMessage());
+        }
+
+        for (Product product : secondSale.getProducts()) {
+            System.out.println(product.toString());
+        }
+
+        try {
+            System.out.println(secondSale.getProducts().get(4));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
