@@ -13,10 +13,10 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        byte youAge = leerByte("Enter your age: ");
-        int age = leerInt("Enter the year you were born: ");
-        float decimalNumber = leerFloat("Enter a decimal number: ");
-        double decimalLargeNumber = leerDouble("Enter a large decimal number (ej: 123456.78): ");
+        byte youAge = readByte("Enter your age: ");
+        int age = readInt("Enter the year you were born: ");
+        float decimalNumber = readFloat("Enter a decimal number: ");
+        double decimalLargeNumber = readDouble("Enter a large decimal number (ej: 123456.78): ");
 
         getChar();
         getBoolean();

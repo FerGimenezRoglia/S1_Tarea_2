@@ -11,7 +11,7 @@ public class Input {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static byte leerByte(String message) {
+    public static byte readByte(String message) {
         boolean isValid = false;
         byte readData = 0;
 
@@ -29,7 +29,7 @@ public class Input {
         return readData;
     }
 
-    public static int leerInt(String message) {
+    public static int readInt(String message) {
         boolean isValid = false;
         int readData = 0;
 
@@ -48,7 +48,7 @@ public class Input {
         return readData;
     }
 
-    public static float leerFloat(String message) {
+    public static float readFloat(String message) {
         boolean isValid = false;
         float readData = 0;
 
@@ -66,7 +66,7 @@ public class Input {
         return readData;
     }
 
-    public static double leerDouble(String message) throws InputMismatchException {
+    public static double readDouble(String message) throws InputMismatchException {
         boolean isValid = false;
         double readData = 0;
 
@@ -91,7 +91,7 @@ public class Input {
 
         while (!isValidChar) {
             try {
-                Input.leerChar("Enter a character: ");
+                Input.readChar("Enter a character: ");
                 isValidChar = true;
             } catch (InvalidCharacterException e) {
                 System.out.println(e.getMessage());
@@ -100,7 +100,7 @@ public class Input {
 
     }
 
-    public static char leerChar(String message) throws InvalidCharacterException {
+    public static char readChar(String message) throws InvalidCharacterException {
 
         System.out.println(message);
         String character = scanner.nextLine();
@@ -120,7 +120,7 @@ public class Input {
 
         while (!isValidString) {
             try {
-                String userName = leerString("Enter a username with at least 3 characters:");
+                String userName = readString("Enter a username with at least 3 characters:");
                 isValidString = true;
             } catch (InvalidStringException e) {
                 System.out.println(e.getMessage());
@@ -128,7 +128,7 @@ public class Input {
         }
     }
 
-    public static String leerString(String message) throws InvalidStringException {
+    public static String readString(String message) throws InvalidStringException {
 
         System.out.println(message);
         String readInput = scanner.nextLine();
@@ -147,7 +147,7 @@ public class Input {
         boolean isValidBoolean = false;
         while (!isValidBoolean) {
             try {
-                boolean response = Input.leerBoolean("Do you want to continue?");
+                boolean response = Input.readBoolean("Do you want to continue?");
                 System.out.println("Response: " + (response ? "Yes" : "No"));
                 isValidBoolean = true;
             } catch (InvalidBooleanException e) {
@@ -156,7 +156,7 @@ public class Input {
         }
     }
 
-    private static boolean leerBoolean(String message) throws InvalidBooleanException {
+    private static boolean readBoolean(String message) throws InvalidBooleanException {
         Boolean isValidBoolean = false;
 
         System.out.println(message + " y/n");
