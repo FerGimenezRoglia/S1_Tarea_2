@@ -85,29 +85,47 @@ public class Input {
         return readData;
     }
 
-    public static char leerChar(String message) throws InvalidCharacterException {
+    public static void getChar() {
+
         boolean isValidChar = false;
-        char charRead = '\0';
 
         while (!isValidChar) {
-
-            System.out.println(message);
-            String character = scanner.nextLine();
-
             try {
-                if (character.length() == 1) {
-                    System.out.println("Character: " + character.charAt(0));
-                } else {
-                    throw new InvalidCharacterException("Error: You must enter a single character.");
-                }
-                charRead = character.charAt(0);
+                Input.leerChar("Enter a character: ");
                 isValidChar = true;
-
             } catch (InvalidCharacterException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return charRead;
+
+    }
+
+    public static char leerChar(String message) throws InvalidCharacterException {
+
+        System.out.println(message);
+        String character = scanner.nextLine();
+
+        if (character.length() == 1) {
+            System.out.println("Character: " + character.charAt(0));
+        } else {
+            throw new InvalidCharacterException("Error: You must enter a single character.");
+        }
+
+        return character.charAt(0);
+    }
+
+    public static void getString() {
+
+        boolean isValidString = false;
+
+        while (!isValidString) {
+            try {
+                String userName = leerString("Enter a username with at least 3 characters:");
+                isValidString = true;
+            } catch (InvalidStringException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public static String leerString(String message) throws InvalidStringException {
@@ -124,8 +142,22 @@ public class Input {
         return readInput;
     }
 
-    public static boolean leerBoolean(String message) throws InvalidBooleanException {
-        Boolean isValidBoolean = true;
+    public static void getBoolean() {
+
+        boolean isValidBoolean = false;
+        while (!isValidBoolean) {
+            try {
+                boolean response = Input.leerBoolean("Do you want to continue?");
+                System.out.println("Response: " + (response ? "Yes" : "No"));
+                isValidBoolean = true;
+            } catch (InvalidBooleanException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private static boolean leerBoolean(String message) throws InvalidBooleanException {
+        Boolean isValidBoolean = false;
 
         System.out.println(message + " y/n");
         String input = scanner.nextLine().toLowerCase();
@@ -140,6 +172,8 @@ public class Input {
         } else {
             throw new InvalidBooleanException("Error: You must enter 'y' or 'n'.");
         }
+
         return isValidBoolean;
     }
+
 }
